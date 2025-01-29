@@ -28,4 +28,15 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         />
+<com.google.android.material.textfield.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toTopOf="@+id/tombol"
+    android:layout_marginBottom="5pt">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+</com.google.android.material.textfield.TextInputLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
