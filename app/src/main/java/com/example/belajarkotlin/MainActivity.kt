@@ -3,6 +3,8 @@ package com.example.belajarkotlin
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -11,10 +13,6 @@ import androidx.core.view.WindowInsetsCompat
 class MainActivity : AppCompatActivity() {
 
 
-     var nilai: Int = 1
-    fun hasil (){
-        nilai += 1
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,13 +26,17 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        val textViewKu: TextView = findViewById(R.id.textku)
-        val buttonKu: Button = findViewById(R.id.tombol)
 
-        buttonKu.setOnClickListener{
-            hasil()
-            textViewKu.text = nilai.toString()
+
+        val editText : EditText = findViewById(R.id.editTeks)
+        val btnClick : Button = findViewById(R.id.tombol)
+
+
+        btnClick.setOnClickListener{
+            val teks: String = editText.text.toString()
+            Toast.makeText(applicationContext, teks, Toast.LENGTH_LONG).show()
         }
+
 
 
 
