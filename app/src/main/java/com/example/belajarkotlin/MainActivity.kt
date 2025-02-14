@@ -1,5 +1,6 @@
 package com.example.belajarkotlin
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Button
@@ -16,8 +17,6 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -32,23 +31,28 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        val editText : EditText = findViewById(R.id.editTeks)
+     //   val editText : EditText = findViewById(R.id.editTeks)
         val btnClick : Button = findViewById(R.id.tombol)
 
 
         btnClick.setOnClickListener{
-            val teks: String = editText.text.toString()
-//            Toast.makeText(applicationContext, teks, Toast.LENGTH_LONG).show()
-//        Snackbar.make(mainLayout, teks, Snackbar.LENGTH_LONG).show()
-        val builder = AlertDialog.Builder(this)
-            builder.setTitle("My Aplikasi")
-            builder.setMessage(teks)
-            builder.setPositiveButton("Tutup"){
-                dialog, which ->
-                dialog.dismiss()
-            }
-            val dialog = builder.create()
-            dialog.show()
+        val pakeIntentExplicit = Intent(this,SecondActivity::class.java)
+            pakeIntentExplicit.putExtra("text","")
+            startActivity(pakeIntentExplicit)
+
+
+//            val teks: String = editText.text.toString()
+//           Toast.makeText(applicationContext, teks, Toast.LENGTH_LONG).show()
+//      Snackbar.make(mainLayout, teks, Snackbar.LENGTH_LONG).show()
+//        val builder = AlertDialog.Builder(this)
+//            builder.setTitle("My Aplikasi")
+//            builder.setMessage(teks)
+//            builder.setPositiveButton("Tutup"){
+//                dialog, which ->
+//                dialog.dismiss()
+//            }
+//            val dialog = builder.create()
+//            dialog.show()
         }
 
 
