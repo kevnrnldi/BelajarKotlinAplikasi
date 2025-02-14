@@ -1,6 +1,9 @@
 package com.example.belajarkotlin
 
+import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.widget.TextView
 import android.widget.Button
@@ -17,6 +20,7 @@ import com.google.android.material.snackbar.Snackbar
 class MainActivity : AppCompatActivity() {
 
 
+    @SuppressLint("QueryPermissionsNeeded")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -33,9 +37,10 @@ class MainActivity : AppCompatActivity() {
 
      //   val editText : EditText = findViewById(R.id.editTeks)
         val btnClick : Button = findViewById(R.id.tombol)
-
+    val btnClickAplikasi : Button = findViewById(R.id.tombol2)
 
         btnClick.setOnClickListener{
+            //explicit intent
         val pakeIntentExplicit = Intent(this,SecondActivity::class.java)
             pakeIntentExplicit.putExtra("text","")
             startActivity(pakeIntentExplicit)
@@ -53,6 +58,33 @@ class MainActivity : AppCompatActivity() {
 //            }
 //            val dialog = builder.create()
 //            dialog.show()
+        }
+
+        btnClickAplikasi.setOnClickListener{
+            //implicint intent
+//            val kirimAplikasi = Intent(Intent.ACTION_VIEW).apply { Uri.parse("https://www.instagram.com") }
+//
+//            if (kirimAplikasi.resolveActivity(packageManager) != null) {
+//                startActivity(kirimAplikasi) // Jika ada, buka URL
+//            }else{
+//                Toast.makeText(applicationContext,"Data Tidak ada yang Dikirim", Toast.LENGTH_SHORT).show()
+//            }
+
+
+
+
+            val kirimData = Intent().apply {
+                action= Intent.ACTION_SEND
+                type= "text/plain"
+            }
+
+
+            kirimData.putExtra(Intent.EXTRA_TEXT, "WOI DECEH")
+            if (kirimData.resolveActivity(packageManager) != null) {
+                startActivity(kirimData) // Jika ada, buka URL
+            }else{
+                Toast.makeText(applicationContext,"Data Tidak ada yang Dikirim", Toast.LENGTH_SHORT).show()
+            }
         }
 
 

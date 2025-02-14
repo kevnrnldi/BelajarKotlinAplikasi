@@ -76,4 +76,16 @@
         android:textColor="@color/white"
 
         />
+
+    <Button
+        android:id="@+id/tombol2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Masuk ke Aplikasi lain"
+        app:layout_constraintBottom_toTopOf="@id/tombol"
+        android:textAllCaps="false"
+        android:backgroundTint="@color/design_default_color_secondary_variant"
+        android:textColor="@color/white"
+
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
